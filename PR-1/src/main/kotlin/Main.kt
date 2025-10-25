@@ -18,17 +18,17 @@ fun main() {
                 print("Введите комбинацию из подряд идущих букв(Например,AAADSSSRRHAA):")
                 val letters = readln().trim()
 
-                if (letters.isEmpty())  //Проверяю строчку на наличие символов
+                if (letters.isEmpty())
                 {
                     print("Строка пустая")
-                    return //Возвращаем если строка пустая
+                    return
                 }
 
-                var result = "" //Переменная для хранения результата
-                var currentLetter = letters[0] //Переменная которй присваиваем текущий символ(первый в нашем случае)
-                var count = 1 //счетчик уникальных символов
+                var result = ""
+                var currentLetter = letters[0]
+                var count = 1
 
-                for (i in 1 until letters.length) //Прохожусь по всей строке
+                for (i in 1 until letters.length)
                 {
                     if (letters[i] == currentLetter)
                     {
@@ -36,9 +36,9 @@ fun main() {
                     }
                     else
                     {
-                        result += "$currentLetter$count" // Добавляю текущий символ и количество его повторений в результат
-                        currentLetter = letters[i] //Переходи на следующий символ дял обработки
-                        count = 1 //Сбрасывем счетчик повторений для нового символа
+                        result += "$currentLetter$count"
+                        currentLetter = letters[i]
+                        count = 1
                     }
                 }
                 result += "$currentLetter$count"
@@ -53,30 +53,29 @@ fun main() {
                 if (combination.isEmpty())
                 {
                     print("Строка пустая")
-                    return //Возвращаем если строка пустая
+                    return
                 }
 
-                val sortcombine = combination.toCharArray().sorted() //преобразую строку в список символов и сортирую
-                var count = 1 //счетчик повторяющихся букв
-                var currentChar = sortcombine[0] //Переменная которй присваиваем текущий символ
+                val sortcombine = combination.toCharArray().sorted()
+                var count = 1
+                var currentChar = sortcombine[0]
                 var result = ""
 
                 for (i in 1 until sortcombine.size)
                 {
-                    if (sortcombine[i] == currentChar) //Если текущий символ в цикле такой же как currentChar
+                    if (sortcombine[i] == currentChar)
                     {
                         count++
                     }
                     else
                     {
-                        result += "$currentChar - $count\n" //собираю результат
-                        currentChar = sortcombine[i] //обновляю на новый символ
-                        count = 1 //сбрасываю счетчик
+                        result += "$currentChar - $count\n"
+                        currentChar = sortcombine[i]
+                        count = 1
                     }
 
                 }
-                result += "$currentChar - $count\n" //для последнего символа
-                println("\nРезультат:")
+                result += "$currentChar - $count\n"
                 println(result)
             }
 
@@ -85,27 +84,27 @@ fun main() {
                 print("Введите число для преобразования:")
                 val number = readln().trim()
 
-                if (number.isEmpty()) //Проверяю строчку на наличие символов
+                if (number.isEmpty())
                 {
                     print("Необходимо ввести число")
-                    return //Возвращаем если строка пустая
+                    return
                 }
 
-                val convert = number.toIntOrNull() //Конвертирую number в int
+                val convert = number.toIntOrNull()
 
-                if ((convert == null) || (convert <= 0)) //Проверям ввод (и чтобы число было натуральное)
+                if ((convert == null) || (convert <= 0))
                 {
                     print("Введите натуральное число")
                     return
                 }
 
-                var result = "" //Переменная для результата
-                var temp = convert //Временная переменная для вычесления
+                var result = ""
+                var temp = convert
                 while (temp > 0)
                 {
-                    val remains = temp % 2 //Остаток от деления на 2
-                    result = remains.toString() + result //Перекидываю бит в начало результата
-                    temp /= 2 //Делим дальше
+                    val remains = temp % 2
+                    result = remains.toString() + result
+                    temp /= 2
                 }
                 println("Результат: $result")
             }
@@ -115,11 +114,11 @@ fun main() {
                 print("Введите число в формате (ЧИСЛО1 ЧИСЛО2 ОПЕРАЦИЯ): ")
                 val calculate = readln().trim()
 
-                val parts = calculate.split(" ") //Разделаю строку по пробелам
+                val parts = calculate.split(" ")
 
-                val numb1 = parts[0].toDoubleOrNull() //Первое число
-                val numb2 = parts[1].toDoubleOrNull() //Второе число
-                val operation = parts[2] //Операция
+                val numb1 = parts[0].toDoubleOrNull()
+                val numb2 = parts[1].toDoubleOrNull()
+                val operation = parts[2]
 
                 if (numb1 == null || numb2 == null)
                 {
@@ -159,16 +158,16 @@ fun main() {
                 print("Введите основание степени x:")
                 val x = readln().trim().toInt()
 
-                if (n <= 0 || x <= 1) //Проверка корректности входных данных
+                if (n <= 0 || x <= 1)
                 {
                     println("n должно быть > 0, x должно быть > 1")
                     return
                 }
 
-                var y = 0 //Показатель степени который нам нужен
-                var check = 1 //Значение x^y, начинаем с x^0 = 1
+                var y = 0
+                var check = 1
 
-                while (check < n) //Перебираю степени x^y, пока не достигну n
+                while (check < n)
                 {
                     check *= x
                     y++
@@ -206,7 +205,7 @@ fun main() {
                     print("Цифры должны отличаться")
                     return
                 }
-                val result: String //Переменная для результата
+                val result: String
 
                 if (conv1 % 2 == 0 && conv2 % 2 == 0)
                 {
@@ -215,11 +214,11 @@ fun main() {
                 }
                 else if (conv1 % 2 == 1)
                 {
-                    result = "$conv2$conv1" //Ставлю нечетную в конце
+                    result = "$conv2$conv1"
                 }
                 else
                 {
-                    result = "$conv1$conv2" //Ставлю нечетную в конце
+                    result = "$conv1$conv2"
                 }
 
                 println("Нечетное число: $result")
